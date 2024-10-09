@@ -38,7 +38,7 @@ else{
 	<!-- Awesome Bootstrap checkbox -->
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<!-- Admin Stye -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styleLogin.css">
   <style>
 
 	.errorWrap {

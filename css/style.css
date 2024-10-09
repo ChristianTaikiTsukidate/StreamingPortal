@@ -1749,7 +1749,6 @@ ol {
 	width: 370px;
 	margin-bottom: 20px;
 }
-
 .login__form form .input__item:before {
 	position: absolute;
 	left: 50px;
@@ -1759,7 +1758,6 @@ ol {
 	background: #b7b7b7;
 	content: "";
 }
-
 .login__form form .input__item input {
 	height: 50px;
 	width: 100%;

@@ -69,7 +69,7 @@ if(isset($_POST['submit']))
 	<!-- Awesome Bootstrap checkbox -->
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<!-- Admin Stye -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styleLogin.css">
 
 	<script type= "text/javascript" src="../vendor/countries.js"></script>
 	<style>

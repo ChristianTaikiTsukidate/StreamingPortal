@@ -43,7 +43,6 @@
  <script src="js/owl.carousel.min.js"></script>
  <script src="js/main.js"></script>
  <script src="js/custom/filter.js"></script>
- <script src="js/custom/movieSeries.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap-select.min.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>

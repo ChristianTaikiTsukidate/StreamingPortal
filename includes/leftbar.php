@@ -10,8 +10,10 @@
 			</li>
 			<li><a href="messages.php"><i class="fa fa-envelope"></i> &nbsp;Messages</a>
 			</li>
+            </li>
+            <li><a href="messages.php"><i class="fa fa-envelope"></i> &nbsp;Messages</a>
+            </li>
 			</ul>
-			<p class="text-center" style="color:#ffffff; margin-top: 100px;">© Ajay</p>
 		</nav>
 
 		

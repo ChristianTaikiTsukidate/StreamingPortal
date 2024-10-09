@@ -127,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </section>
 <script src="js/custom/formvalidation.js"></script>
+<script src="js/custom/movieSeries.js"></script>
 <?php
 require_once('footer.php');
 ?>

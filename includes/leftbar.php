@@ -11,7 +11,7 @@
 			<li><a href="messages.php"><i class="fa fa-envelope"></i> &nbsp;Messages</a>
 			</li>
             </li>
-            <li><a href="messages.php"><i class="fa fa-envelope"></i> &nbsp;Messages</a>
+            <li><a href="favorites.php"><i class="fa fa-heart"></i> &nbsp;Favorites</a>
             </li>
 			</ul>
 		</nav>

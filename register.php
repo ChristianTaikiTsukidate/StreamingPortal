@@ -1,5 +1,5 @@
+<?php require_once("header.php")?>
 <?php
-include('includes/config.php');
 if(isset($_POST['submit']))
 {
 
@@ -54,8 +54,6 @@ if(isset($_POST['submit']))
 
 }
 ?>
-<?php require_once("header.php")?>
-
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
         <div class="container">
@@ -115,11 +113,11 @@ if(isset($_POST['submit']))
                             </div>
                             <div class="input__item">
                                 <input type="text" placeholder="Designation" name="designation" required>
-                                <span class="icon_lock"></span>
+                                <span class="icon_group"></span>
                             </div>
                             <div class="input__item">
                                 <input type="number" placeholder="Phone" name="mobileno" required>
-                                <span class="icon_lock"></span>
+                                <span class="icon_phone"></span>
                             </div>
                             <div class="form-group">
                                 <input type="file" name="image" required>

@@ -54,7 +54,18 @@
                         <ul>
                             <li><a href="index.php">Homepage</a></li>
                             <li><a href="movieedit.php">Add Movie/Series</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <?php
+                            session_start();
+                            error_reporting(0);
+                            include('includes/config.php');
+                            if(strlen($_SESSION['alogin'])==0)
+                            { ?>
+                                <li><a href="login.php">Login</a></li>
+                           <?php }
+                            else{ ?>
+                                <li><a href="profile.php">Profile</a></li>
+                           <?php } ?>
+
                         </ul>
                     </nav>
                 </div>

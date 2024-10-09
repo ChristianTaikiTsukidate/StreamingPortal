@@ -1,6 +1,5 @@
+<?php require_once ("header.php") ?>
 <?php
-session_start();
-include('includes/config.php');
 if(isset($_POST['login']))
 {
     $status='1';
@@ -26,8 +25,6 @@ if(isset($_POST['login']))
 }
 
 ?>
-<?php require_once ("header.php") ?>
-
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
         <div class="container">

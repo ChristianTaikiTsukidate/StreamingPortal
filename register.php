@@ -55,51 +55,30 @@ $error="Something went wrong. Please try again";
 }
 ?>
 
-<!doctype html>
-<html lang="en" class="no-js">
+<?php require_once ("header.php") ?>
+<script type="text/javascript">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-social.css">
-	<link rel="stylesheet" href="css/bootstrap-select.css">
-	<link rel="stylesheet" href="css/fileinput.min.css">
-	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-	<link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript">
-
-	function validate()
+    function validate()
+    {
+        var extensions = new Array("jpg","jpeg");
+        var image_file = document.regform.image.value;
+        var image_length = document.regform.image.value.length;
+        var pos = image_file.lastIndexOf('.') + 1;
+        var ext = image_file.substring(pos, image_length);
+        var final_ext = ext.toLowerCase();
+        for (i = 0; i < extensions.length; i++)
         {
-            var extensions = new Array("jpg","jpeg");
-            var image_file = document.regform.image.value;
-            var image_length = document.regform.image.value.length;
-            var pos = image_file.lastIndexOf('.') + 1;
-            var ext = image_file.substring(pos, image_length);
-            var final_ext = ext.toLowerCase();
-            for (i = 0; i < extensions.length; i++)
+            if(extensions[i] == final_ext)
             {
-                if(extensions[i] == final_ext)
-                {
                 return true;
-                
-                }
-            }
-            alert("Image Extension Not Valid (Use Jpg,jpeg)");
-            return false;
-        }
-        
-</script>
-</head>
 
-<body>
+            }
+        }
+        alert("Image Extension Not Valid (Use Jpg,jpeg)");
+        return false;
+    }
+
+</script>
 	<div class="login-page bk-img">
 		<div class="form-content">
 			<div class="container">
@@ -168,16 +147,4 @@ $error="Something went wrong. Please try again";
 		</div>
 	</div>
 	
-	<!-- Loading Scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
-
-</body>
-</html>
+<?php require_once ("footer.php")?>

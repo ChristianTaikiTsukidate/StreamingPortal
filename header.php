@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Anime Template">
@@ -23,6 +23,14 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/custom-style.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/fileinput.min.css">
+    <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- Page Preloder -->
@@ -40,19 +48,20 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="header__nav">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="index.php">Homepage</a></li>
-                            <li class="active"><a href="movieedit.php">Add Movie/Series</a></li>
+                            <li><a href="index.php">Homepage</a></li>
+                            <li><a href="movieedit.php">Add Movie/Series</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <div class="input-group col-lg-6 align-bottom align-items-center">
-                    <input type="text" class="form-control" placeholder="Search" id="searchField"/>
-                </div>
+            <div class="input-group col align-bottom align-items-center col-lg-4">
+                <input type="text" class="form-control" placeholder="Search" id="searchField"/>
+            </div>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>

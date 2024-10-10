@@ -8,9 +8,9 @@ class episodes extends connection
     {
         parent::__construct($this->tableName);
     }
-    public function insertSeasonWithOffersId($id) {
-        $params = [$id];
-        connection::prepareStmt("INSERT INTO `episodes`(`number`, `name`, `duration`, `releaseYear`, `seasons_id`) VALUES ('[value-2]','[value-3]','[value-4]','[value-5]',?)", $params);
+    public function insertEpsisodeWithSeasonId() {
+        $params = [$_POST["Number"], $_POST["Name"], $_POST["Duration"], $_POST["Release_Year"], $_POST["seasonsId"]];
+        connection::prepareStmt("INSERT INTO `episodes`(`number`, `name`, `duration`, `releaseYear`, `seasons_id`) VALUES (?,?,?,?,?)", $params);
     }
 
     public function getEpisodeNumbers($seasonId) {

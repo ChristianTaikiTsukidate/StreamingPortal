@@ -10,34 +10,40 @@ else{
 	
 if(isset($_POST['submit']))
   {	
-	$file = $_FILES['image']['name'];
-	$file_loc = $_FILES['image']['tmp_name'];
-	$folder="images/";
+	$file = $_FILES['attachment']['name'];
+	$file_loc = $_FILES['attachment']['tmp_name'];
+	$folder="attachment/";
 	$new_file_name = strtolower($file);
 	$final_file=str_replace(' ','-',$new_file_name);
 	
-	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$mobileno=$_POST['mobile'];
-	$designation=$_POST['designation'];
-	$idedit=$_POST['editid'];
-	$image=$_POST['image'];
+	$title=$_POST['title'];
+    $description=$_POST['description'];
+	$user=$_SESSION['alogin'];
+	$reciver= 'Admin';
+    $notitype='Send Feedback';
+    $attachment=' ';
 
 	if(move_uploaded_file($file_loc,$folder.$final_file))
 		{
-			$image=$final_file;
+			$attachment=$final_file;
 		}
+	$notireciver = 'Admin';
+    $sqlnoti="insert into notification (notiuser,notireciver,notitype) values (:notiuser,:notireciver,:notitype)";
+    $querynoti = $dbh->prepare($sqlnoti);
+	$querynoti-> bindParam(':notiuser', $user, PDO::PARAM_STR);
+	$querynoti-> bindParam(':notireciver', $notireciver, PDO::PARAM_STR);
+    $querynoti-> bindParam(':notitype', $notitype, PDO::PARAM_STR);
+    $querynoti->execute();
 
-	$sql="UPDATE users SET name=(:name), email=(:email), mobile=(:mobileno), designation=(:designation), Image=(:image) WHERE id=(:idedit)";
+	$sql="insert into feedback (sender, reciver, title,feedbackdata,attachment) values (:user,:reciver,:title,:description,:attachment)";
 	$query = $dbh->prepare($sql);
-	$query-> bindParam(':name', $name, PDO::PARAM_STR);
-	$query-> bindParam(':email', $email, PDO::PARAM_STR);
-	$query-> bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
-	$query-> bindParam(':designation', $designation, PDO::PARAM_STR);
-	$query-> bindParam(':image', $image, PDO::PARAM_STR);
-	$query-> bindParam(':idedit', $idedit, PDO::PARAM_STR);
-	$query->execute();
-	$msg="Information Updated Successfully";
+	$query-> bindParam(':user', $user, PDO::PARAM_STR);
+	$query-> bindParam(':reciver', $reciver, PDO::PARAM_STR);
+	$query-> bindParam(':title', $title, PDO::PARAM_STR);
+	$query-> bindParam(':description', $description, PDO::PARAM_STR);
+	$query-> bindParam(':attachment', $attachment, PDO::PARAM_STR);
+    $query->execute(); 
+	$msg="Feedback Send";
 }    
 ?>
 
@@ -96,15 +102,13 @@ if(isset($_POST['submit']))
 
 <body>
 <?php
-		$email = $_SESSION['alogin'];
-		$sql = "SELECT * from users where email = (:email);";
+		$sql = "SELECT * from users;";
 		$query = $dbh -> prepare($sql);
-		$query-> bindParam(':email', $email, PDO::PARAM_STR);
 		$query->execute();
 		$result=$query->fetch(PDO::FETCH_OBJ);
 		$cnt=1;	
 ?>
-	<?php include('includes/header.php');?>
+<?php include('header.php');?>
 	<div class="ts-main-content">
 	<?php include('includes/leftbar.php');?>
 		<div class="content-wrapper">
@@ -112,55 +116,40 @@ if(isset($_POST['submit']))
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row">
+                       
 							<div class="col-md-12">
+                            <h2>Give us Feedback</h2>
 								<div class="panel panel-default">
-									<div class="panel-heading"><?php echo htmlentities($_SESSION['alogin']); ?></div>
+									<div class="panel-heading">Edit Info</div>
 <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 
-									<div class="panel-body">
+<div class="panel-body">
 <form method="post" class="form-horizontal" enctype="multipart/form-data">
 
 <div class="form-group">
+    <input type="hidden" name="user" value="<?php echo htmlentities($result->email); ?>">
+	<label class="col-sm-2 control-label">Title<span style="color:red">*</span></label>
 	<div class="col-sm-4">
+	<input type="text" name="title" class="form-control" required>
 	</div>
-	<div class="col-sm-4 text-center">
-		<img src="images/<?php echo htmlentities($result->image);?>" style="width:200px; border-radius:50%; margin:10px;">
-		<input type="file" name="image" class="form-control">
-		<input type="hidden" name="image" class="form-control" value="<?php echo htmlentities($result->image);?>">
-	</div>
+
+	<label class="col-sm-2 control-label">Attachment<span style="color:red"></span></label>
 	<div class="col-sm-4">
+	<input type="file" name="attachment" class="form-control">
 	</div>
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label">Name<span style="color:red">*</span></label>
-	<div class="col-sm-4">
-	<input type="text" name="name" class="form-control" required value="<?php echo htmlentities($result->name);?>">
-	</div>
-
-	<label class="col-sm-2 control-label">Email<span style="color:red">*</span></label>
-	<div class="col-sm-4">
-	<input type="email" name="email" class="form-control" required value="<?php echo htmlentities($result->email);?>">
+	<label class="col-sm-2 control-label">Description<span style="color:red">*</span></label>
+	<div class="col-sm-10">
+	<textarea class="form-control" rows="5" name="description"></textarea>
 	</div>
 </div>
-
-<div class="form-group">
-	<label class="col-sm-2 control-label">Mobile<span style="color:red">*</span></label>
-	<div class="col-sm-4">
-	<input type="text" name="mobile" class="form-control" required value="<?php echo htmlentities($result->mobile);?>">
-	</div>
-
-	<label class="col-sm-2 control-label">Designation<span style="color:red">*</span></label>
-	<div class="col-sm-4">
-	<input type="text" name="designation" class="form-control" required value="<?php echo htmlentities($result->designation);?>">
-	</div>
-</div>
-<input type="hidden" name="editid" class="form-control" required value="<?php echo htmlentities($result->id);?>">
 
 <div class="form-group">
 	<div class="col-sm-8 col-sm-offset-2">
-		<button class="btn btn-primary" name="submit" type="submit">Save Changes</button>
+		<button class="btn btn-primary" name="submit" type="submit">Send</button>
 	</div>
 </div>
 

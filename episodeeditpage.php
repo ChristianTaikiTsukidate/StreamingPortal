@@ -8,6 +8,7 @@ require_once("models/genres.php");
 require_once("models/providers.php");
 require_once("models/seasons.php");
 require_once("models/episodes.php");
+$episodes = new Episodes();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_adder'])) {
         $offers = new Offers("offers");
@@ -18,9 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $providers->insertOffersHasProvidersById($offersId);
         $seasons = new Seasons();
         $seasonsId = $seasons->insertSeasonWithOffersId($offersId);
+    } if(isset($_POST['addEpisode'])) {
+        $episodes->insertEpsisodeWithSeasonId();
+        $seasons = $_POST["seasonsId"];
     }
 }
-$episodes = new Episodes();
+echo $seasonsId;
 $latestEpisode = $episodes->getLatestEpisode($seasonsId);
 ?>
 <!-- Product Section Begin -->
@@ -30,7 +34,7 @@ $latestEpisode = $episodes->getLatestEpisode($seasonsId);
             <div class="row">
                 <?php
                 createinputformfield("Number", (isset($latestEpisode['number']) ? $latestEpisode['number'] + 1 : 1), "number");
-                createinputformfield("Original Title", $latestEpisode['name'] ?? "", "text");
+                createinputformfield("Name", $latestEpisode['name'] ?? "", "text");
                 ?>
             </div>
             <div class="row">
@@ -39,9 +43,10 @@ $latestEpisode = $episodes->getLatestEpisode($seasonsId);
                 createinputformfield("Duration", $latestEpisode['duration'] ?? "", "number");
                 ?>
             </div>
+            <input type="hidden" id="seasonsId" name="seasonsId" value="<?php echo $seasonsId; ?>">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-primary" value="AddEpisode">Add</button>
+                    <button type="submit" class="btn btn-primary" name="addEpisode">Add</button>
                 </div>
             </div>
         </form>

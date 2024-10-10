@@ -36,6 +36,7 @@ include('includes/config.php');
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/custom-style.css" type="text/css">
+    <link rel="stylesheet" href="css/styleLogin.css">
 </head>
 <body>
 <!-- Page Preloder -->
@@ -59,12 +60,16 @@ include('includes/config.php');
                         <ul>
 
                             <li><a href="index.php">Homepage</a></li>
-                            <li><a href="movieedit.php">Add Movie/Series</a></li>
                             <?php
-                            if (strlen($_SESSION['alogin']) == 0) { ?>
-                                <li><a href="login.php">Login</a></li>
-                            <?php } else { ?>
+                            if (isset($_SESSION['adminlogin'])) { ?>
+                                <li><a href="movieedit.php">Add Movie/Series</a></li>
+                                <li><a href="admin/logout.php">Logout</a></li>
+                            <?php }?>
+                            <?php
+                            if (isset($_SESSION['alogin'])) { ?>
                                 <li><a href="logout.php">Logout</a></li>
+                            <?php } if(!isset($_SESSION['alogin']) && !isset($_SESSION['adminlogin'])) { ?>
+                                <li><a href="login.php">Login</a></li>
                             <?php } ?>
 
                         </ul>
@@ -78,4 +83,10 @@ include('includes/config.php');
         <div id="mobile-menu-wrap"></div>
     </div>
 </header>
+<?php if(isset($_SESSION['alogin'])) {?>
+    <?php include('includes/leftbar.php');?>
+<?php } ?>
+<?php if(isset($_SESSION['adminlogin'])) {?>
+    <?php include('admin/includes/leftbar.php');?>
+<?php } ?>
 <!-- Header End -->

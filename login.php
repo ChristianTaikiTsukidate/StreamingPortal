@@ -2,7 +2,7 @@
 <?php
 error_reporting(0);
 include('includes/config.php');
-if(isset($_SESSION['adminlogin'])>0||isset($_SESSION['alogin'])>0)
+if(isset($_SESSION['adminlogin'])||isset($_SESSION['alogin']))
 {
     header('location:index.php');
 }
@@ -21,7 +21,7 @@ if(isset($_POST['login']))
     if($query->rowCount() > 0)
     {
         $_SESSION['alogin']=$_POST['username'];
-        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+        echo "<script type='text/javascript'> document.location = 'profile.php'; </script>";
     } else{
 
         echo "<script>alert('Invalid Details Or Account Not Confirmed');</script>";

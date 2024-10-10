@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['adminlogin']))
+{
+    header("Location: http://".$_SERVER['HTTP_HOST']."/index.php"); //
+}
 include('includes/config.php');
 if(isset($_POST['login']))
 {
@@ -22,6 +26,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 }
 
 }
+
 
 ?>
 <!doctype html>

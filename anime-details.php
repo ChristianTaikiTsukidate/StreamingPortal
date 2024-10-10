@@ -187,7 +187,6 @@ if(count($moviesArr) > 0){
                         ?>
 
                     </div>
-                    <?php require_once ('pagination.php') ?>
                 </div>
             </div>
         </div>

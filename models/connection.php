@@ -2,8 +2,8 @@
 class connection
 {
     private $host = "localhost";
-    private $username = "root";
-    private $password = "";
+    private $username = "editor";
+    private $password = "123abc";
     private $dbname = "streamingportal";
     private $port = "3306";
     protected static $pdo = null;

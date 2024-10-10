@@ -1,5 +1,11 @@
 <?php require_once ("header.php") ?>
 <?php
+error_reporting(0);
+include('includes/config.php');
+if(isset($_SESSION['adminlogin'])>0||isset($_SESSION['alogin'])>0)
+{
+    header('location:index.php');
+}
 if(isset($_POST['login']))
 {
     $status='1';

@@ -64,10 +64,7 @@ include('includes/config.php');
                             if (strlen($_SESSION['alogin']) == 0) { ?>
                                 <li><a href="login.php">Login</a></li>
                             <?php } else { ?>
-                                <?php
-                                if (strlen($_SESSION['alogin']) > 0) { ?>
-                                    <li><a href="profile.php"><?php echo htmlentities($_SESSION['alogin']); ?></a></li>
-                                <?php } ?>
+                                <li><a href="logout.php">Logout</a></li>
                             <?php } ?>
 
                         </ul>

@@ -15,7 +15,7 @@ if(isset($_POST['login']))
     if($query->rowCount() > 0)
     {
         $_SESSION['alogin']=$_POST['username'];
-        echo "<script type='text/javascript'> document.location = 'profile.php'; </script>";
+        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
     } else{
 
         echo "<script>alert('Invalid Details Or Account Not Confirmed');</script>";

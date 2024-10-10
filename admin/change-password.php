@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+if(strlen($_SESSION['adminlogin'])==0)
 	{	
 header('location:login.php');
 }
@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 	{
 $password=md5($_POST['password']);
 $newpassword=md5($_POST['newpassword']);
-$username=$_SESSION['alogin'];
+$username=$_SESSION['adminlogin'];
 $sql ="SELECT Password FROM admin WHERE UserName=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);

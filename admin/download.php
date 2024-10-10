@@ -4,7 +4,7 @@ session_start();
 session_regenerate_id(true);
 include('includes/config.php');
 
-if(strlen($_SESSION['alogin'])==0)
+if(strlen($_SESSION['adminlogin'])==0)
 	{	
 	header("Location: login.php"); //
 	}

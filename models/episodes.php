@@ -9,7 +9,7 @@ class episodes extends connection
         parent::__construct($this->tableName);
     }
     public function insertEpsisodeWithSeasonId() {
-        $params = [$_POST["Number"], $_POST["Name"], $_POST["Duration"], $_POST["Release_Year"], $_POST["seasonsId"]];
+        $params = [$_POST["episodenumber"], $_POST["Name"], $_POST["Duration"], $_POST["Release_Year"], $_POST["seasonId"]];
         connection::prepareStmt("INSERT INTO `episodes`(`number`, `name`, `duration`, `releaseYear`, `seasons_id`) VALUES (?,?,?,?,?)", $params);
     }
 
@@ -33,5 +33,27 @@ LIMIT 1;
         } else {
             return null;  // Return null if no result is found
         }
+    }
+
+    public function getLatestId() {
+        $results = connection::queryStatement("
+SELECT * 
+FROM `episodes`
+ORDER BY `id` DESC 
+LIMIT 1;
+");
+        if (!empty($results)) {
+            return $results[0]['id'];  // Return the first result if exists
+        } else {
+            return null;  // Return null if no result is found
+        }
+    }
+    public function getEpisodesBySeasonId($id) {
+    $params = [$id];
+    return connection::prepareStmt("SELECT `id`, `number`, `name`, `duration`, `releaseYear`, `seasons_id` FROM `episodes` WHERE `seasons_id` = ?;", $params);
+}
+    public function getEpisodesById($id) {
+        $params = [$id];
+        return connection::prepareStmt("SELECT `id`, `number`, `name`, `duration`, `releaseYear`, `seasons_id` FROM `episodes` WHERE `id` = ?;", $params);
     }
 }

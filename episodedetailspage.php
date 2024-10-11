@@ -12,14 +12,9 @@ require_once("models/actors.php");
 require_once("models/directors.php");
 require_once("models/seasons.php");
 $seasons = new Seasons();
-if(isset($_POST['form_add_season'])) {
-    $seasons->insertSeasonWithOffersIdAndNumber($seasons->getLatestSeasonByOffersId($_GET['id'])['number']+1, $_GET['id']);
-}
-if(isset($_POST['seasonDelete'])) {
-    $seasons->deleteSeasonById($_POST['seasonDelete']);
-}
 $seasonsArr = $seasons->getSeasonsByOffersId($_GET['id']);
 $providers = new Providers();
+
 if(isset($_POST["form_editor"])) {
     if ($_POST['form_editor'] === 'Edit') {
         $offers = new Offers("offers");
@@ -45,7 +40,7 @@ if(count($moviesArr) > 0){
 }
 
 ?>
-<!--     Anime Section Begin-->
+    <!--     Anime Section Begin-->
     <section class="anime-details spad">
         <div class="container">
             <div class="anime__details__content">
@@ -57,14 +52,11 @@ if(count($moviesArr) > 0){
                         </div>
                         <div class="row">
                             <?php if(isset($_SESSION['adminlogin'])) {?>
-                                <a href="movieedit.php?id=<?= $_GET['id'] ?>" class="btn btn-info btn-lg">
+                                <a href="episodeeditpage.php?id=<?= $_GET['id'] ?>&seasonId=<?= $_GET['seasonId'] ?>&episodeId=<?= $_GET['episodeId'] ?>" class="btn btn-info btn-lg">
                                     <span class="glyphicon glyphicon-edit"></span> Edit
                                 </a>
                                 <form method="post" action="index.php">
-                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>" name="form_delete" id="deleteBtn">Delete</button>
-                                </form>
-                                <form method="post" action="anime-details.php?id=<?php echo $media["id"]; ?>">
-                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>" name="form_add_season" id="addSeason">Add Season</button>
+                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>" name="seasonDelete" id="deleteBtn">Delete</button>
                                 </form>
                             <?php }?>
                         </div>
@@ -79,14 +71,14 @@ if(count($moviesArr) > 0){
                                 <div class="rating">
                                     <?php
                                     $i = $media["rating"];
-                                        while($i > 1) {?>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                       <?php
+                                    while($i > 1) {?>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <?php
                                         $i = $i - 1;
-                                        }
-                                        if($i > 0.5) { ?>
-                                            <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                        <?php }
+                                    }
+                                    if($i > 0.5) { ?>
+                                        <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                    <?php }
                                     ?>
                                 </div>
                                 <span>1.029 Votes</span>
@@ -161,7 +153,7 @@ if(count($moviesArr) > 0){
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
                                 <a href="#" class="watch-btn"><span>Watch Now</span> <i
-                                            class="fa fa-angle-right"></i></a>
+                                        class="fa fa-angle-right"></i></a>
                             </div>
                             <div class="login__social">
                                 <div class="col-lg-6">
@@ -182,24 +174,5 @@ if(count($moviesArr) > 0){
             </div>
         </div>
     </section>
-    <!-- Product Section Begin -->
-    <section class="product-page spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="product__page__content">
-                        <div class="row">
-                        <?php
-                        foreach ($seasonsArr as $season) {
-                            createSeriesElement($media, $season);
-                        }
-                        ?>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product Section End -->
     <script src="js/custom/deleteBtn.js"></script>
 <?php require_once('footer.php'); ?>

@@ -11,41 +11,30 @@ require_once("models/providers.php");
 require_once("models/actors.php");
 require_once("models/directors.php");
 require_once("models/seasons.php");
+require_once("models/episodes.php");
 $seasons = new Seasons();
-if(isset($_POST['form_add_season'])) {
-    $seasons->insertSeasonWithOffersIdAndNumber($seasons->getLatestSeasonByOffersId($_GET['id'])['number']+1, $_GET['id']);
+$season = $seasons->getSeasonById($_GET['seasonId']);
+$episodes = new Episodes();
+if(isset($_POST['addEpisode'])) {
+    $episodes->insertEpsisodeWithSeasonId();
+    $seasons = $_POST["seasonsId"];
 }
-if(isset($_POST['seasonDelete'])) {
-    $seasons->deleteSeasonById($_POST['seasonDelete']);
-}
-$seasonsArr = $seasons->getSeasonsByOffersId($_GET['id']);
+$episodesArr = $episodes->getEpisodesBySeasonId($_GET['seasonId']);
 $providers = new Providers();
+$seasonsCount = $seasons->getSeasonsCountByOffersId($_GET['id']);
 if(isset($_POST["form_editor"])) {
     if ($_POST['form_editor'] === 'Edit') {
-        $offers = new Offers("offers");
-        $offers->updateById($_GET['id']);
-        $genres = new Genres();
-        $genres->updateOffersHasGenresById($_GET['id']);
-        $providers->updateOffersHasProvidersById($_GET['id']);
-        $movies = new Movies();
-        $movies->updateMovieByOffersId($_GET['id']);
-        print_r($_POST);
+       // $seasons =
     }
 }
+
 $series = new Series();
-$movies = new Movies();
 $seriesArr = $series->getRecordById($_GET['id']);
-$moviesArr = $movies->getRecordById($_GET['id']);
 $providersArr = $providers->getProvidersByOffersId($_GET['id']);
 $media = [];
-if(count($moviesArr) > 0){
-    $media = array_merge($media, $moviesArr[0]);
-} else {
-    $media = array_merge($media, $seriesArr[0]);
-}
-
+$media = array_merge($media, $seriesArr[0]);
 ?>
-<!--     Anime Section Begin-->
+    <!--     Anime Section Begin-->
     <section class="anime-details spad">
         <div class="container">
             <div class="anime__details__content">
@@ -57,36 +46,35 @@ if(count($moviesArr) > 0){
                         </div>
                         <div class="row">
                             <?php if(isset($_SESSION['adminlogin'])) {?>
-                                <a href="movieedit.php?id=<?= $_GET['id'] ?>" class="btn btn-info btn-lg">
-                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                <a href="episodeeditpage.php?id=<?= $_GET['id'] ?>&seasonId=<?= $_GET['seasonId'] ?>" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-edit"></span>Add Episode
                                 </a>
-                                <form method="post" action="index.php">
-                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>" name="form_delete" id="deleteBtn">Delete</button>
-                                </form>
+                                <?php if($seasonsCount > 1) { ?>
                                 <form method="post" action="anime-details.php?id=<?php echo $media["id"]; ?>">
-                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>" name="form_add_season" id="addSeason">Add Season</button>
+                                    <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['seasonId'] ?>" name="seasonDelete" id="deleteBtn">Delete</button>
                                 </form>
-                            <?php }?>
+                            <?php }
+                            }?>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="anime__details__text">
                             <div class="anime__details__title">
-                                <h3><?php echo $media["title"]; ?></h3>
+                                <h3><?php echo $media["title"]; ?>: Season <?php echo $media["number"]; ?></h3>
                                 <span></span>
                             </div>
                             <div class="anime__details__rating">
                                 <div class="rating">
                                     <?php
                                     $i = $media["rating"];
-                                        while($i > 1) {?>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                       <?php
+                                    while($i > 1) {?>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <?php
                                         $i = $i - 1;
-                                        }
-                                        if($i > 0.5) { ?>
-                                            <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                        <?php }
+                                    }
+                                    if($i > 0.5) { ?>
+                                        <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                    <?php }
                                     ?>
                                 </div>
                                 <span>1.029 Votes</span>
@@ -161,7 +149,7 @@ if(count($moviesArr) > 0){
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
                                 <a href="#" class="watch-btn"><span>Watch Now</span> <i
-                                            class="fa fa-angle-right"></i></a>
+                                        class="fa fa-angle-right"></i></a>
                             </div>
                             <div class="login__social">
                                 <div class="col-lg-6">
@@ -190,11 +178,11 @@ if(count($moviesArr) > 0){
                     <div class="product__page__content">
                         <div class="row">
                         <?php
-                        foreach ($seasonsArr as $season) {
-                            createSeriesElement($media, $season);
+                        foreach ($episodesArr as $episode) {
+                            createEpisodesElement($media, $season, $episode);
                         }
                         ?>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

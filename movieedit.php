@@ -100,20 +100,10 @@ if (isset($_SESSION['adminlogin'])) {
                                 <button type="submit" class="btn btn-primary" value="Edit" name="form_editor">Edit
                                 </button>
                             </div>
-                            <?php if (count($seriesArr) > 0) ?>
+                            <?php if (count($seriesArr) > 0 && isset($_GET['id'])) { ?>
                                 <div class="col">
-                                    <a href="seasonseditpage.php" class="btn btn-primary">Add Season</a>
                                 </div>
-<!--                                <div class="col">-->
-<!--                                    <a href="episodeeditpage.php" class="btn btn-primary">Add Episode</a>-->
-<!--                                </div>-->
-                                <div class="col">
-                                    <a href="seasonseditpage.php?id=" class="btn btn-primary">Edit Season</a>
-                                </div>
-<!--                                <div class="col">-->
-<!--                                    <a href="episodeeditpage.php" class="btn btn-primary">Add Episode</a>-->
-<!--                                </div>-->
-                            <?php ?>
+                            <?php } ?>
                         </div>
                         <?php
                     } else {

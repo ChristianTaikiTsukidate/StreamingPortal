@@ -9,6 +9,9 @@ require_once("models/providers.php");
 require_once("models/seasons.php");
 require_once("models/episodes.php");
 $episodes = new Episodes();
+if(isset($_GET['episodeId'])){
+    $episode = $episodes->getEpisodesById($_GET['episodeId'])[0];
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_adder'])) {
         $offers = new Offers("offers");
@@ -19,31 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $providers->insertOffersHasProvidersById($offersId);
         $seasons = new Seasons();
         $seasonsId = $seasons->insertSeasonWithOffersId($offersId);
-    } if(isset($_POST['addEpisode'])) {
-        $episodes->insertEpsisodeWithSeasonId();
-        $seasons = $_POST["seasonsId"];
     }
 }
-echo $seasonsId;
-$latestEpisode = $episodes->getLatestEpisode($seasonsId);
+$latestEpisode = $episodes->getLatestEpisode($_GET['seasonId']);
+$latestEpisodeNumber = $latestEpisode['number'] ?? 1;
+$nextId = $episodes->getLatestId();
 ?>
 <!-- Product Section Begin -->
 <section class="product-page spad">
     <div class="container" id="movieEditForm">
-        <form method="post" action="episodeeditpage.php">
+        <form method="post" action="seasonsdetailspage.php?id=<?= $_GET['id'] ?>&seasonId=<?= $_GET['seasonId'] ?>">
             <div class="row">
+            <?php if(!isset($_GET['episodeId'])){ ?>
+                <input type="hidden" id="episodenumber" name="episodenumber" value="<?php echo $latestEpisode['number'] ?? 1; ?>">
                 <?php
-                createinputformfield("Number", (isset($latestEpisode['number']) ? $latestEpisode['number'] + 1 : 1), "number");
-                createinputformfield("Name", $latestEpisode['name'] ?? "", "text");
-                ?>
-            </div>
-            <div class="row">
+                createinputformfield("Name","", "text");
+                createinputformfield("Release Year", "", "number");
+                createinputformfield("Duration", "", "number");
+                } else { ?>
+                    <input type="hidden" id="episodenumber" name="episodenumber" value="<?php echo $episode['number']; ?>">
                 <?php
-                createinputformfield("Release Year", $latestEpisode['releaseYear'] ?? "", "number");
-                createinputformfield("Duration", $latestEpisode['duration'] ?? "", "number");
-                ?>
+                    createinputformfield("Name",$episode['name'], "text");
+                    createinputformfield("Release Year", $episode['releaseYear'], "number");
+                    createinputformfield("Duration", $episode['duration'], "number");
+                     } ?>
             </div>
-            <input type="hidden" id="seasonsId" name="seasonsId" value="<?php echo $seasonsId; ?>">
+            <input type="hidden" id="seasonId" name="seasonId" value="<?php echo $_GET['seasonId']; ?>">
             <div class="row">
                 <div class="col">
                     <button type="submit" class="btn btn-primary" name="addEpisode">Add</button>

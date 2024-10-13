@@ -2,11 +2,11 @@
 
 class offers extends connection
 {
+    private $tableName;
     public function __construct($tableName)
     {
         parent::__construct($tableName);
     }
-
     public function getReleaseYear()
     {
         return connection::getArrOfSingleAttribute("SELECT `movies`.`releaseYear` FROM `movies` UNION DISTINCT SELECT `episodes`.`releaseYear` FROM `episodes`ORDER BY `releaseYear` DESC;", "releaseYear");

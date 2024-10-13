@@ -1,11 +1,11 @@
 <?php
 class connection
 {
-    private $host = "localhost";
-    private $username = "editor";
-    private $password = "123abc";
-    private $dbname = "streamingportal";
-    private $port = "3306";
+    private $host = DBHOST;
+    private $username = DBUSER;
+    private $password = DBPASS;
+    private $dbname = DBNAME;
+    private $port = DBPORT;
     protected static $pdo = null;
     private $tableName;
     function __construct($tableName) {

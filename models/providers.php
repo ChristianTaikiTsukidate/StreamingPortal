@@ -18,8 +18,8 @@ class providers extends connection
     {
         $params = [];
         $params[] = $id;
-        $assArr = connection::prepareStmt("
-SELECT `providers`.`name` AS `provider` FROM `providers` JOIN 
+        return connection::prepareStmt("
+SELECT `providers`.`name` AS `provider`, `providers`.`logo` AS `logo` FROM `providers` JOIN 
     `offershasproviders` 
 ON 
     `providers`.`id` = `offershasproviders`.`provider_id`
@@ -29,7 +29,6 @@ ON
 `offers`.`id` = `offershasproviders`.`offers_id`
 WHERE `offers`.`id`=?;
 ", $params);
-        return connection::convertAssArrToArr($assArr, 'provider');
     }
 
     public function getProvidersFullByOffersId($id)

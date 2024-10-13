@@ -11,7 +11,10 @@ class series extends offers
 
     public function getRecords()
     {
-        return connection::queryStatement("SELECT `offers`.`id`, `offers`.`title`, `offers`.`trailer`, `offers`.`fsk`, `offers`.`posterLink`, `offers`.`originalTitle`, `offers`.`rating`, `offers`.`description`, CONCAT(MIN(`episodes`.`releaseYear`), ' - ', MAX(`episodes`.`releaseYear`)) AS `releaseYear`, SUM(`episodes`.`duration`) AS `duration` FROM `offers` JOIN `seasons` ON `offers`.`id` = `seasons`.`offers_id` JOIN `episodes` ON `seasons`.`id` = `episodes`.`seasons_id` GROUP BY `offers`.`id`; ");
+        return connection::queryStatement("SELECT `offers`.`id`, `offers`.`title`, `offers`.`trailer`, `offers`.`fsk`, `offers`.`posterLink`, `offers`.`originalTitle`, `offers`.`rating`, `offers`.`description`, IF(MIN(`episodes`.`releaseYear`) = MAX(`episodes`.`releaseYear`), 
+        MIN(`episodes`.`releaseYear`), 
+        CONCAT(MIN(`episodes`.`releaseYear`), ' - ', MAX(`episodes`.`releaseYear`))
+    ) AS `releaseYear`, SUM(`episodes`.`duration`) AS `duration` FROM `offers` JOIN `seasons` ON `offers`.`id` = `seasons`.`offers_id` JOIN `episodes` ON `seasons`.`id` = `episodes`.`seasons_id` GROUP BY `offers`.`id`; ");
     }
     public function getRecordById($id)
     {
@@ -26,8 +29,11 @@ class series extends offers
     `offers`.`posterLink`, 
     `offers`.`originalTitle`, 
     `offers`.`rating`, 
-    `offers`.`description`, 
-    CONCAT(MIN(`episodes`.`releaseYear`), ' - ', MAX(`episodes`.`releaseYear`)) AS `releaseYear`, 
+    `offers`.`description`,
+    IF(MIN(`episodes`.`releaseYear`) = MAX(`episodes`.`releaseYear`), 
+        MIN(`episodes`.`releaseYear`), 
+        CONCAT(MIN(`episodes`.`releaseYear`), ' - ', MAX(`episodes`.`releaseYear`))
+    ) AS `releaseYear`, 
     SUM(`episodes`.`duration`) AS `duration`,
     `genres`.`name` AS `genre`
 FROM 

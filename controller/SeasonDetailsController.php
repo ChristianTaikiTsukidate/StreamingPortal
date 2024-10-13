@@ -4,7 +4,11 @@ require_once("../models/offers.php");
 require_once("../models/providers.php");
 require_once("../models/seasons.php");
 require_once("../models/episodes.php");
-
+$breadcrumbAssArr = array(
+    "Home" => "index.php",
+    "Series" => "MediaDetailsView.php?id=" . $_GET['id'],
+    "Season" => "SeasonDetailsView.php?id=" . $_GET['id'] . "&seasonId=" . $_GET['seasonId']
+);
 $seasons = new Seasons();
 if(isset($_POST['seasonDelete'])) {
     $seasons->deleteSeasonById($_GET['seasonId']);

@@ -5,7 +5,6 @@ require_once("../models/movies.php");
 require_once("../models/series.php");
 require_once("../models/providers.php");
 require_once("../models/seasons.php");
-
 $seasons = new Seasons();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_add_season'])) {
@@ -38,5 +37,9 @@ if (count($seriesArr)) {
 } else {
     $media['type'] = "Movie";
 }
+$breadcrumbAssArr = array(
+    "Home" => "index.php",
+    $media['type'] => "MediaDetailsView.php?id=" . $_GET['id']
+);
 ?>
 

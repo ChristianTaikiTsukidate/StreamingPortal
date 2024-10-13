@@ -8,9 +8,10 @@ require_once("../controller/MediaDetailsController.php");
 /** @var array $media */
 /** @var array $seasonsArr */
 /** @var array $providersArr */
+/** @var array $breadcrumbAssArr */
+createBreadcrumb($breadcrumbAssArr);
+createMediaDetailsElement($media, $providersArr, $media['title']);
 ?>
-
-<?php createMediaDetailsElement($media, $providersArr, $media['title']) ?>
         <div class="container">
             <div class="product__page__title">
                 <div class="row">

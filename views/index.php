@@ -1,17 +1,20 @@
 <?php
-require_once('header.php');
-require_once('elements/breadcrumb.php');
-require_once('../controller/IndexController.php');
-require_once('elements/carousel.php');
-require_once('elements/filterDropdowns.php');
-require_once('elements/MediaElements.php');
 /** @var Genres $genres */
 /** @var Offers $offers */
 /** @var Providers $providers */
 /** @var Actors $actors */
 /** @var Directors $directors */
 /** @var array $medias */
+/** @var array $breadcrumbAssArr */
+require_once('header.php');
+require_once('../controller/IndexController.php');
+require_once('elements/breadcrumb.php');
+createBreadcrumb($breadcrumbAssArr);
+require_once('elements/carousel.php');
+require_once('elements/filterDropdowns.php');
+require_once('elements/MediaElements.php');
 echo DBUSER;
+
 ?>
 <!-- Carousel End -->
 <!-- Product Section Begin -->

@@ -9,9 +9,9 @@ require_once('../controller/SeasonDetailsController.php');
 /** @var array $providersArr */
 /** @var array $episodesArr */
 /** @var array $season */
-?>
-<?php createMediaDetailsElement($season, $providersArr, $season["title"] . ": Season " . $season['number']) ?>
-
+/** @var array $breadcrumbAssArr */
+createBreadcrumb($breadcrumbAssArr);
+createMediaDetailsElement($season, $providersArr, $season["title"] . ": Season " . $season['number']) ?>
     <div class="container">
         <div class="product__page__title">
             <div class="row">
@@ -21,7 +21,8 @@ require_once('../controller/SeasonDetailsController.php');
                         <span class="glyphicon glyphicon-edit"></span>Add Episode
                     </a>
                     <?php if ($seasonsCount > 1) { ?>
-                        <form method="post" action="SeasonDetailsView.php?id=<?= $season["offerId"]; ?>&seasonId=<?=$season["seasonId"] ?>">
+                        <form method="post"
+                              action="SeasonDetailsView.php?id=<?= $_GET['id']; ?>&seasonId=<?= $_GET['seasonId'] ?>">
                             <button type="submit" class="btn btn-info btn-lg"
                                     name="seasonDelete" id="deleteBtn">Delete
                             </button>
@@ -33,7 +34,7 @@ require_once('../controller/SeasonDetailsController.php');
     </div>
     </section>
 
-    <section class="product-page spad">
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

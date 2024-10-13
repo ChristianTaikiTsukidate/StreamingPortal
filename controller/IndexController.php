@@ -7,7 +7,9 @@ require_once("../models/actors.php");
 require_once("../models/directors.php");
 require_once("../models/movies.php");
 require_once("../models/series.php");
-
+$breadcrumbAssArr = array(
+    "Home" => "index.php"
+);
 $movieConn = new movies();
 $movies = [];
 $seriesConn = new series();

@@ -4,6 +4,7 @@ require_once("../models/offers.php");
 require_once("../models/providers.php");
 require_once("../models/seasons.php");
 require_once("../models/episodes.php");
+require_once("../models/genres.php");
 $breadcrumbAssArr = array(
     "Home" => "index.php",
     "Series" => "MediaDetailsView.php?id=" . $_GET['id'],
@@ -24,5 +25,6 @@ $episodesArr = $episodes->getEpisodesBySeasonId($_GET['seasonId']);
 $providers = new Providers();
 $providersArr = $providers->getProvidersByOffersId($_GET['id']);
 
-
+$genres = new Genres();
+$genresArr = $genres->getGenreByOffersId($_GET['id']);
 ?>

@@ -21,7 +21,7 @@ class users extends connection
     public function getUserByEmailAndPassword()
     {
         $userParams = [$_POST["email"]];
-        $user = connection::prepareStmt("SELECT `users`.`name` AS `name`, `users`.`email` AS `email`, `users`.`password` AS `password`, `roles`.`name` AS `role` FROM `users`
+        $user = connection::prepareStmt("SELECT `users`.`id` AS `id`, `users`.`name` AS `name`, `users`.`email` AS `email`, `users`.`password` AS `password`, `roles`.`name` AS `role` FROM `users`
 JOIN `usershasroles` ON `usershasroles`.`users_id` = `users`.`id`
 JOIN `roles` ON `roles`.`id` = `usershasroles`.`roles_id`
 WHERE  UPPER(`users`.`email`) = UPPER(?)", $userParams);
@@ -30,6 +30,11 @@ WHERE  UPPER(`users`.`email`) = UPPER(?)", $userParams);
             return $user[0];
         }
         return null;
+    }
+
+    public function insertWatchlistItem($movieId, $userId){
+        $params = [$movieId, $userId];
+        connection::prepareStmt("INSERT INTO `watchlists`(`user_id`, `offers_id`) VALUES (?,?)", $params);
     }
 
 }

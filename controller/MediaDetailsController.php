@@ -5,6 +5,8 @@ require_once("../models/movies.php");
 require_once("../models/series.php");
 require_once("../models/providers.php");
 require_once("../models/seasons.php");
+require_once("../models/genres.php");
+require_once("../models/offers.php");
 $seasons = new Seasons();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_add_season'])) {
@@ -41,5 +43,11 @@ $breadcrumbAssArr = array(
     "Home" => "index.php",
     $media['type'] => "MediaDetailsView.php?id=" . $_GET['id']
 );
+$genres = new Genres();
+$genresArr = $genres->getGenreByOffersId($_GET['id']);
+
+$offers = new offers("offers");
+$watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
+$watchlist = $offers->convertAssArrToArr($watchlist, 'id');
 ?>
 

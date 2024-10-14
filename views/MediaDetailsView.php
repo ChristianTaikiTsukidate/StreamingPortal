@@ -9,8 +9,9 @@ require_once("../controller/MediaDetailsController.php");
 /** @var array $seasonsArr */
 /** @var array $providersArr */
 /** @var array $breadcrumbAssArr */
+/** @var array $genresArr */
 createBreadcrumb($breadcrumbAssArr);
-createMediaDetailsElement($media, $providersArr, $media['title']);
+createMediaDetailsElement($media, $providersArr, $media['title'], $genresArr);
 ?>
         <div class="container">
             <div class="product__page__title">
@@ -46,7 +47,7 @@ createMediaDetailsElement($media, $providersArr, $media['title']);
                         <div class="row">
                             <?php
                             foreach ($seasonsArr as $season) {
-                                createMediaElement($season, "SeasonDetailsView.php?id=" . $season["offerId"] . "&seasonId=" . $season["seasonId"], $season["title"] . ": Season " . $season["number"]);
+                                createMediaElement($season, "SeasonDetailsView.php?id=" . $season["id"] . "&seasonId=" . $season["seasonId"], $season["title"] . ": Season " . $season["number"]);
                             }
                             ?>
                         </div>

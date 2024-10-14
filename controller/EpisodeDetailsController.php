@@ -2,6 +2,7 @@
 require_once("../models/connection.php");
 require_once("../models/providers.php");
 require_once("../models/episodes.php");
+require_once("../models/genres.php");
 $breadcrumbAssArr = array(
     "Home" => "index.php",
     "Series" => "MediaDetailsView.php?id=" . $_GET['id'],
@@ -20,4 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $episodesCount = $episodes->getEpisodeNumbers($_GET['seasonId']);
 $episode = $episodes->getEpisodeById($_GET['episodeId']);
 $episode['type'] = "Series";
+
+$genres = new Genres();
+$genresArr = $genres->getGenreByOffersId($_GET['id']);
 

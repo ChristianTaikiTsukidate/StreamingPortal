@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['role']))
 {
-    $_SESSION['role'] = 'user';
+    $_SESSION['role'] = 'admin';
 }
 if($_SESSION['role'] == 'admin')
 {

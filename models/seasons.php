@@ -28,7 +28,7 @@ class seasons extends connection
         $params = [$id];
         return connection::prepareStmt("
 SELECT 
-    `offers`.`id` AS `offerId`, 
+    `offers`.`id` AS `id`, 
     `offers`.`title`, 
     `offers`.`trailer`, 
     `offers`.`fsk`, 
@@ -67,7 +67,7 @@ HAVING
     public function getSeasonsByOffersIdFullInfo($id) {
         $params = [$id];
         return connection::prepareStmt("SELECT 
-    `offers`.`id` AS `offerId`, 
+    `offers`.`id` AS `id`, 
     `offers`.`title`, 
     `offers`.`trailer`, 
     `offers`.`fsk`, 

@@ -73,7 +73,7 @@ LIMIT 1;
     public function getEpisodesBySeasonId($id) {
     $params = [$id];
     return connection::prepareStmt("SELECT 
-    `offers`.`id` AS `offerId`, 
+    `offers`.`id` AS `id`, 
     `offers`.`title`, 
     `offers`.`trailer`, 
     `offers`.`fsk`, 

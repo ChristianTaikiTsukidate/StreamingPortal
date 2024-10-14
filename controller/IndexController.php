@@ -18,11 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_identifier'])) {
         if ($_POST['form_identifier'] === 'filterForm') {
             $formIdentifier = json_decode($_POST['filterResult'], true);
-            echo in_array("Movies", $formIdentifier['mediafilter']);
             if (in_array("Movies", $formIdentifier['mediafilter'])) {
                 $movies = $movieConn->getFilteredRecords($formIdentifier);
-            }
-            if (in_array("Series", $formIdentifier['mediafilter'])) {
+            } elseif (in_array("Series", $formIdentifier['mediafilter'])) {
+                $series = $seriesConn->getFilteredRecords($formIdentifier);
+            } else {
+                $movies = $movieConn->getFilteredRecords($formIdentifier);
                 $series = $seriesConn->getFilteredRecords($formIdentifier);
             }
         }
@@ -47,5 +48,5 @@ $offers = new offers("offers");
 $providers = new providers();
 $actors = new actors();
 $directors = new directors();
-
-
+$watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
+$watchlist = $offers->convertAssArrToArr($watchlist, 'id');

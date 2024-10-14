@@ -35,4 +35,13 @@ VALUES (?, ?, ?, ?, ?, ?, ?)", $params);
         $lastInsertId = connection::$pdo->lastInsertId();
         return $lastInsertId;
     }
+
+    public function getOfferByUserId($id)
+    {
+        $params = [$id];
+        return connection::prepareStmt("SELECT `offers`.`id`, `offers`.`title`, `offers`.`trailer`, `offers`.`fsk`, `offers`.`posterLink`, `offers`.`originalTitle`, `offers`.`rating`, `offers`.`description` FROM `offers` 
+        JOIN watchlists ON watchlists.offers_id = offers.id 
+        JOIN users ON watchlists.user_id = users.id 
+         WHERE users.id = ?;", $params);
+    }
 }

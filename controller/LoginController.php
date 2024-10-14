@@ -5,6 +5,7 @@ if(isset($_POST["login"])){
 
     $users = new Users();
     $user = $users->getUserByEmailAndPassword();
+    $_SESSION["userId"] = $user["id"];
     $_SESSION["name"] = $user["name"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["role"] = $user["role"];

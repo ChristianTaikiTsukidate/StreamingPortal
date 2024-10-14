@@ -30,12 +30,6 @@ WHERE `offers`.`id`=?;
 ", $params);
         return connection::convertAssArrToArr($assArr, 'genre');
     }
-
-    public function updateById($id) {
-        $params = [$_POST["Genre"], $id];
-        connection::prepareStmt("UPDATE `genres` SET `name`=? WHERE `id`=?;", $params);
-    }
-
     public function updateOffersHasGenresById($id) {
         $paramsDelete = [$id];
         connection::prepareStmt("DELETE FROM `offershasgenres` WHERE `offers_id` = ?", $paramsDelete);
@@ -45,17 +39,11 @@ WHERE `offers`.`id`=?;
             connection::prepareStmt("INSERT INTO `offershasgenres`(`offers_id`, `genres_id`) VALUES (?,?)", $paramsInsert);
         }
     }
-
     public function insertOffersHasGenresById($id) {
         foreach ($_POST["Genres"] as $genre) {
             $genreId = connection::prepareStmt("SELECT `id` FROM `genres` WHERE `name` = ?", [$genre])[0]['id'];
             $paramsInsert = [$id, $genreId];
             connection::prepareStmt("INSERT INTO `offershasgenres`(`offers_id`, `genres_id`) VALUES (?,?)", $paramsInsert);
         }
-    }
-
-    public function deleteOffersHasGenresByOffersId($id) {
-        $params = [$id];
-        connection::prepareStmt("DELETE FROM `offershasgenres` WHERE `offers_id` = ?;", $params);
     }
 }

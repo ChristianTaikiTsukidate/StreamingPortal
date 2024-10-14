@@ -66,12 +66,12 @@ HAVING
             $params[] = $value;
         }
         foreach ($assArr['actorsfilter'] as $value) {
-            $whereConditionString = $whereConditionString . " AND `actor_fip`.`lastname` = ? AND `actor_fip`.`firstname` = ?";
-            $params = array_merge($params, explode(" ", $value));
+            $whereConditionString = $whereConditionString . " AND (`actor_fip`.`lastname` = ? AND `actor_fip`.`firstname` = ?)";
+            $params = array_merge($params, explode(str_repeat('&nbsp;', 2), $value));
         }
         foreach ($assArr['directorsfilter'] as $value) {
-            $whereConditionString = $whereConditionString . " AND `director_fip`.`lastname` = ? AND `director_fip`.`firstname` = ?";
-            $params = array_merge($params, explode(" ", $value));
+            $whereConditionString = $whereConditionString . " AND (`director_fip`.`lastname` = ? AND `director_fip`.`firstname` = ?)";
+            $params = array_merge($params, explode(str_repeat('&nbsp;', 2), $value));
         }
         $havingConditionString = "";
         if (count($assArr['releaseyearfilter']) == 1) {

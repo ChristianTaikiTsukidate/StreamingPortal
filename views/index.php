@@ -13,7 +13,6 @@ createBreadcrumb($breadcrumbAssArr);
 require_once('elements/carousel.php');
 require_once('elements/filterDropdowns.php');
 require_once('elements/MediaElements.php');
-echo DBUSER;
 
 ?>
 <!-- Carousel End -->
@@ -23,7 +22,7 @@ echo DBUSER;
         <div class="row">
             <div class="col-lg-12">
                 <div class="product__page__content">
-                    <form action="/StreamingPortal/index.php" method="post">
+                    <form action="index.php" method="post">
                         <input type="hidden" name="form_identifier" value="filterForm">
                         <div class="product__page__title">
                             <div class="row">
@@ -66,5 +65,6 @@ echo DBUSER;
         </div>
     </div>
 </section>
+<script src="js/ajax/addFavs.js"></script>
 <!-- Product Section End -->
 <?php require_once('footer.php'); ?>

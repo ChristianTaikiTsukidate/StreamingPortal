@@ -8,8 +8,9 @@ require_once("../controller/EpisodeDetailsController.php");
 /** @var array $episode */
 /** @var int $episodesCount */
 /** @var array $breadcrumbAssArr */
+/** @var array $genresArr */
 createBreadcrumb($breadcrumbAssArr);
-createMediaDetailsElement($episode, $providersArr, $episode['name']);
+createMediaDetailsElement($episode, $providersArr, $episode['name'], $genresArr);
 ?>
     <div class="container">
         <div class="product__page__title">

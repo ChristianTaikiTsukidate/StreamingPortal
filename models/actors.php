@@ -7,6 +7,11 @@ class actors extends connection
         parent::__construct($this->tableName);
     }
     public function getActorNames() {
-        return connection::getArrOfSingleAttribute("SELECT CONCAT(`filmindustryprofessional`.`lastname`, ' ', `filmindustryprofessional`.`firstname`) AS `name` FROM `filmindustryprofessional` JOIN actors ON actors.filmIndustryProfessional_id = filmindustryprofessional.id JOIN offers ON offers.id = actors.offers_id GROUP BY `name`;", 'name');
+        $assArr = connection::queryStatement("SELECT `filmindustryprofessional`.`lastname`, `filmindustryprofessional`.`firstname` FROM `filmindustryprofessional` JOIN actors ON actors.filmIndustryProfessional_id = filmindustryprofessional.id JOIN offers ON offers.id = actors.offers_id GROUP BY `lastname`, `firstname`;");
+        $arr = [];
+        foreach($assArr as $ele) {
+            $arr[] = $ele['lastname'] . str_repeat('&nbsp;', 2) . $ele['firstname'];
+        }
+        return $arr;
     }
 }

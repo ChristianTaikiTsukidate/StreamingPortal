@@ -66,5 +66,6 @@ require_once('elements/MediaElements.php');
     </div>
 </section>
 <script src="addFavs.js"></script>
+<script src="hoverDetails.js"></script>
 <!-- Product Section End -->
 <?php require_once('footer.php'); ?>

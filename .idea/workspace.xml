@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6c0f92-5681-4793-89c0-1672b25e400a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/addFavsDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/deleteFavorite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/insertFavorite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/getMovieDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hoverDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/MediaDetailsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/MediaDetailsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/SeasonDetailsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/SeasonDetailsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/elements/MediaDetailsElement.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/elements/MediaDetailsElement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/MediaDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MediaDetailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/css/custom-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/css/custom-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/elements/MediaElements.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/elements/MediaElements.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/jojo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/ajax/addFavs.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/addFavs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/ajax/insertFavorite.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -39,10 +33,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\xampp\php\php.exe" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2nR8ig5olQ8TvIzJJjlQ2e4FBCs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,6 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.index.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -83,6 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728924656742</updated>
       <workItem from="1728924658080" duration="4769000" />
+      <workItem from="1728933350369" duration="5412000" />
     </task>
     <servers />
   </component>
@@ -94,7 +90,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/views/addFavs.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

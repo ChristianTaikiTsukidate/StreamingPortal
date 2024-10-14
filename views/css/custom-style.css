@@ -115,3 +115,22 @@ img.streamingService{
 {
     color: white;
 }
+
+.hover-area {
+    cursor: pointer;
+}
+
+/* Hidden details box */
+.details-box {
+    display: none;
+    position: absolute;
+    bottom: 100%;  /* Adjust to position above the hover area */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: black;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 100;
+}

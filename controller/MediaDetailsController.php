@@ -6,7 +6,6 @@ require_once("../models/series.php");
 require_once("../models/providers.php");
 require_once("../models/seasons.php");
 require_once("../models/genres.php");
-require_once("../models/offers.php");
 $seasons = new Seasons();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['form_add_season'])) {
@@ -31,13 +30,10 @@ $providersArr = $providers->getProvidersByOffersId($_GET['id']);
 $media = [];
 if (count($movieArr) > 0) {
     $media = array_merge($media, $movieArr[0]);
+    $media['type'] = "Movie";
 } else {
     $media = array_merge($media, $seriesArr[0]);
-}
-if (count($seriesArr)) {
     $media['type'] = "Series";
-} else {
-    $media['type'] = "Movie";
 }
 $breadcrumbAssArr = array(
     "Home" => "index.php",
@@ -47,7 +43,9 @@ $genres = new Genres();
 $genresArr = $genres->getGenreByOffersId($_GET['id']);
 
 $offers = new offers("offers");
-$watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
-$watchlist = $offers->convertAssArrToArr($watchlist, 'id');
+if(isset($_SESSION['userId'])) {
+    $watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
+    $watchlist = $offers->convertAssArrToArr($watchlist, 'id');
+}
 ?>
 

@@ -43,7 +43,7 @@ createMediaDetailsElement($season, $providersArr, $season["title"] . ": Season "
                         <div class="row">
                             <?php
                             foreach ($episodesArr as $episode) {
-                                createMediaElement($episode, "EpisodeDetailsView.php?id=" . $episode["id"] . "&seasonId=" . $episode["seasonId"] . "&episodeId=" . $episode["episodeId"], $episode["name"]);
+                                createMediaElement($episode, "EpisodeDetailsView.php?id=" . $episode["id"] . "&seasonId=" . $episode["seasonId"] . "&episodeId=" . $episode["episodeId"], $episode["name"], false);
                             }
                             ?>
                         </div>

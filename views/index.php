@@ -55,7 +55,7 @@ require_once('elements/MediaElements.php');
                     <div class="row">
                         <?php
                         foreach ($medias as $media) {
-                            createMediaElement($media, "MediaDetailsView.php?id=" . $media["id"], $media["title"]);
+                            createMediaElement($media, "MediaDetailsView.php?id=" . $media["id"], $media["title"], true);
                         }
                         ?>
                     </div>
@@ -65,6 +65,6 @@ require_once('elements/MediaElements.php');
         </div>
     </div>
 </section>
-<script src="js/ajax/addFavs.js"></script>
+<script src="addFavs.js"></script>
 <!-- Product Section End -->
 <?php require_once('footer.php'); ?>

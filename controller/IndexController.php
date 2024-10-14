@@ -48,5 +48,8 @@ $offers = new offers("offers");
 $providers = new providers();
 $actors = new actors();
 $directors = new directors();
-$watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
-$watchlist = $offers->convertAssArrToArr($watchlist, 'id');
+if(isset($_SESSION['userId'])) {
+    $watchlist = $offers->getOfferByUserId($_SESSION["userId"]);
+    $watchlist = $offers->convertAssArrToArr($watchlist, 'id');
+}
+

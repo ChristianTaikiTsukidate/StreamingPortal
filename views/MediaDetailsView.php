@@ -13,30 +13,30 @@ require_once("../controller/MediaDetailsController.php");
 createBreadcrumb($breadcrumbAssArr);
 createMediaDetailsElement($media, $providersArr, $media['title'], $genresArr);
 ?>
-        <div class="container">
-            <div class="product__page__title">
-                <div class="row">
-                    <?php if ($_SESSION['role'] == "admin") { ?>
-                        <a href="MediaEditView.php?id=<?= $_GET['id'] ?>" class="btn btn-info btn-lg">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
-                        </a>
-                        <?php if ($media['type'] == 'Series') { ?>
-                            <form method="post" action="MediaDetailsView.php?id=<?= $_GET['id']; ?>">
-                                <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>"
-                                        name="form_add_season" id="addSeason">Add Season
-                                </button>
-                            </form>
-                            <?php
-                        } ?>
+    <div class="container">
+        <div class="product__page__title">
+            <div class="row">
+                <?php if ($_SESSION['role'] == "admin") { ?>
+                    <a href="MediaEditView.php?id=<?= $_GET['id'] ?>" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a>
+                    <?php if ($media['type'] == 'Series') { ?>
                         <form method="post" action="MediaDetailsView.php?id=<?= $_GET['id']; ?>">
-                            <button type="submit" class="btn btn-info btn-lg"
-                                    name="form_delete" id="deleteBtn">Delete
+                            <button type="submit" class="btn btn-info btn-lg" value="<?= $_GET['id'] ?>"
+                                    name="form_add_season" id="addSeason">Add Season
                             </button>
                         </form>
-                    <?php } ?>
-                </div>
+                        <?php
+                    } ?>
+                    <form method="post" action="MediaDetailsView.php?id=<?= $_GET['id']; ?>">
+                        <button type="submit" class="btn btn-info btn-lg"
+                                name="form_delete" id="deleteBtn">Delete
+                        </button>
+                    </form>
+                <?php } ?>
             </div>
         </div>
+    </div>
     </section>
     <!-- Product Section Begin -->
     <section>
@@ -47,7 +47,7 @@ createMediaDetailsElement($media, $providersArr, $media['title'], $genresArr);
                         <div class="row">
                             <?php
                             foreach ($seasonsArr as $season) {
-                                createMediaElement($season, "SeasonDetailsView.php?id=" . $season["id"] . "&seasonId=" . $season["seasonId"], $season["title"] . ": Season " . $season["number"]);
+                                createMediaElement($season, "SeasonDetailsView.php?id=" . $season["id"] . "&seasonId=" . $season["seasonId"], $season["title"] . ": Season " . $season["number"], false);
                             }
                             ?>
                         </div>
@@ -58,4 +58,5 @@ createMediaDetailsElement($media, $providersArr, $media['title'], $genresArr);
     </section>
     <!-- Product Section End -->
     <script src="js/custom/deleteBtn.js"></script>
+    <script src="addFavsDetails.js"></script>
 <?php require_once('footer.php'); ?>

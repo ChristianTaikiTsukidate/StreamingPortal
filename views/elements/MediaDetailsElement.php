@@ -81,16 +81,22 @@ function createMediaDetailsElement($media, $providersArr, $title, $genresArr)
                     </div>
                     <div class="anime__details__btn">
                         <?php if (isset($_SESSION["email"])) {
-                            if(isset($watchlist)) {
+                            if (isset($watchlist)) {
                                 if (in_array($media['id'], $watchlist)) { ?>
-                                <a href="#" class="follow-btn"><i class="fa fa-heart"></i> Follow</a>
-                            <?php } else { ?>
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                            <?php }
-                            } ?>
+                                    <a href="javascript:void(0)s" class="follow-btn" id="followBtn"><i
+                                                class="fa fa-heart"></i>
+                                        Follow</a>
+
+                                <?php } else { ?>
+                                    <a href="javascript:void(0)" class="follow-btn" id="followBtn"><i
+                                                class="fa fa-heart-o"></i>
+                                        Follow</a>
+                                <?php } ?>
+                                <input value="<?= $_GET['id']; ?>" id="followBtnValue" hidden>
+                            <?php } ?>
                             <a href="#" class="watch-btn"><span>Watch Now</span> <i
                                         class="fa fa-angle-right"></i></a>
-                       <?php }?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <?php
-function createMediaElement($media, $href, $title)
+function createMediaElement($media, $href, $title, $enableWatchlist)
 {
     global $watchlist;
     ?>
@@ -7,8 +7,8 @@ function createMediaElement($media, $href, $title)
 <div class="product__item__pic set-bg image" data-setbg=<?= $media["posterLink"]; ?>>
     <div class="ep"></i><?= $media["rating"]; ?> / 10</div>
     <div class="comment"><i class=""></i><?= $media["releaseYear"]; ?></div>
-    <?php if (isset($_SESSION["email"])) {
-    if (isset($watchlist) && in_array($media['id'], $watchlist)) { ?>
+    <?php if (isset($_SESSION["email"]) && $enableWatchlist) {
+    if (in_array($media['id'], $watchlist)) { ?>
         <button value="<?= $media['id']?>" class="favBtn"><div class="view"><i class="fa fa-heart"></i></div></button>
     <?php } else { ?>
         <button value="<?= $media['id']?>" class="favBtn"><div class="view"><i class="fa fa-heart-o"></i></div></button>

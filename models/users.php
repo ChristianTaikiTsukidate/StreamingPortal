@@ -32,9 +32,13 @@ WHERE  UPPER(`users`.`email`) = UPPER(?)", $userParams);
         return null;
     }
 
-    public function insertWatchlistItem($movieId, $userId){
-        $params = [$movieId, $userId];
+    public function insertWatchlistItem($offerId, $userId){
+        $params = [$userId, $offerId];
         connection::prepareStmt("INSERT INTO `watchlists`(`user_id`, `offers_id`) VALUES (?,?)", $params);
     }
 
+    public function deleteWatchlistItem($offerId, $userId){
+        $params = [$userId, $offerId];
+        connection::prepareStmt("DELETE FROM `watchlists` WHERE `user_id` = ? AND `offers_id` = ?;", $params);
+    }
 }

@@ -10,12 +10,11 @@ for (const heart of hearts) {
             icon.classList.add("fa-heart");
         } else {
             xhr.open("GET", "deleteFavorite.php?id=" + heart.value.toString(), true);
-            icon.classList.remove("fa-heart");
-            icon.classList.add("fa-heart-o");
+            icon.closest(".hoverContainer").remove();
         }
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-               // alert(xhr.responseText);
+                // alert(xhr.responseText);
             } else {
                 alert('Error:' . xhr.statusText);
             }

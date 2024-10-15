@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6c0f92-5681-4793-89c0-1672b25e400a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/getMovieDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hoverDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/WatchListController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/WatchListView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/addFavsWatchlist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MediaDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MediaDetailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/css/custom-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/css/custom-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/elements/MediaElements.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/elements/MediaElements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addFavs.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/addFavs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addFavsDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/addFavsDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\xampp\php\php.exe" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -45,7 +46,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.index.php.executor": "Run",
+    "JavaScript Debug.index.php.executor": "Debug",
+    "PHP Script.index.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -64,8 +66,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
-        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
       </set>
     </attachedChunks>
   </component>
@@ -79,6 +81,7 @@
       <updated>1728924656742</updated>
       <workItem from="1728924658080" duration="4769000" />
       <workItem from="1728933350369" duration="5412000" />
+      <workItem from="1728971225168" duration="7785000" />
     </task>
     <servers />
   </component>
@@ -91,6 +94,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/views/addFavs.js</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/views/index.php</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

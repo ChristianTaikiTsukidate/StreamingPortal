@@ -14,7 +14,7 @@ heart.onclick = function () {
     }
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            alert(xhr.responseText);
+         //   alert(xhr.responseText);
         } else {
             alert('Error:'.xhr.statusText);
         }

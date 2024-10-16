@@ -134,3 +134,6 @@ img.streamingService{
     width: 200px;
     z-index: 100;
 }
+.details-box li{
+    list-style-type: none
+}

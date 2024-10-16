@@ -4,7 +4,7 @@
             <div class="owl-stage-outer">
                 <div class="owl-stage">
                     <div class="owl-item cloned">
-                        <div class="hero__items set-bg" data-setbg="'img/Movie/Anoen.jpg'"
+                        <div class="hero__items set-bg" data-setbg="'img/trending/catpush.gif'"
                              style="background-image: url('img/Movie/Anoen.jpg');">
                             <div class="row">
                                 <div class="col-lg-6">

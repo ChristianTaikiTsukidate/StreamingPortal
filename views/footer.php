@@ -44,6 +44,7 @@
 <script src="js/Chart.min.js"></script>
 <script src="js/fileinput.js"></script>
 <script src="js/chartData.js"></script>
+<script src="changeBackground.js"></script>
  </body>
 
  </html>

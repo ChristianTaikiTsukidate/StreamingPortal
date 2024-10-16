@@ -51,8 +51,8 @@
                 <div class="header__nav">
                     <nav class="header__menu mobile-menu">
                         <ul>
-
                             <li><a href="index.php">Homepage</a></li>
+                            <li><a href="javascript:void(0)s" id="backgroundbutton">Background</a></li>
                             <?php
                             if ($_SESSION['role'] == "admin") { ?>
                                 <li><a href="MediaEditView.php">Add Movie/Series</a></li>

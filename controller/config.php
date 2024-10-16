@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(!isset($_SESSION['role']))
 {
     $_SESSION['role'] = 'user';
@@ -21,4 +20,5 @@ if($_SESSION['role'] == 'admin')
     define('DBPASS', '123abc');
     define('DBPORT', '3306');
 }
+$_SESSION["backgroundIndex"] = 1;
 require_once('../models/connection.php');

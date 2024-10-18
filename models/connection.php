@@ -19,6 +19,9 @@ class connection
             }
         }
     }
+    function getPdo() {
+        return self::$pdo;
+    }
     function getRecords() {
         if (self::$pdo) {
             try {

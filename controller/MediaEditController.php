@@ -15,7 +15,7 @@ $moviesArr = [];
 $providers = new providers();
 $series = new Series();
 $movies = new Movies();
-
+$connection = new Connection("");
 if (isset($_GET['id'])) {
     $seriesArr = $series->getRecordById($_GET['id']);
     $moviesArr = $movies->getRecordById($_GET['id']);
@@ -25,39 +25,71 @@ if (isset($_GET['id'])) {
         $media = array_merge($media, $seriesArr[0]);
     }
     $genresArr = $genres->getGenreByOffersId($_GET['id']);
-    $connection = new Connection("");
     $providersArr = $connection->convertAssArrToArr($providers->getProvidersByOffersId($_GET['id']), "provider");
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['form_adder'])) {
+    try {
+        $pdo = $connection->getPdo();
+
+        $pdo->exec("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+
+        $pdo->beginTransaction();  // Start transaction here
+
         $offers = new Offers("offers");
         $offersId = $offers->insertGetId();
         $genres = new Genres();
         $genres->insertOffersHasGenresById($offersId);
+
         $providers = new Providers();
         $providers->insertOffersHasProvidersById($offersId);
-        if ($_POST['form_adder'] === 'Movie') {
-            $movies->insertMovieWithOffersId($offersId);
-            header('Location: MediaDetailsView.php?id=' . $offersId);
+
+        if (isset($_POST['form_adder'])) {
+            if ($_POST['form_adder'] === 'Movie') {
+                $movies = new Movies();  // Ensure Movies is instantiated
+                $movies->insertMovieWithOffersId($offersId);
+            } elseif ($_POST['form_adder'] === 'Series') {
+                $seasons = new Seasons();
+                $seasonsId = $seasons->insertSeasonWithOffersId($offersId);
+            }
         }
-        if($_POST['form_adder'] === 'Series') {
-            $seasons = new Seasons();
-            $seasonsId = $seasons->insertSeasonWithOffersId($offersId);
+
+        $pdo->commit();  // Commit transaction
+
+        // Redirect after commit
+        if ($_POST['form_adder'] === 'Movie') {
+            header('Location: MediaDetailsView.php?id=' . $offersId);
+        } elseif ($_POST['form_adder'] === 'Series') {
             header('Location: EpisodeEditView.php?id=' . $offersId . "&seasonId=" . $seasonsId);
         }
+
+    } catch (Exception $e) {
+        $pdo->rollBack();
+        echo "Failed: " . $e->getMessage();
     }
-    if(isset($_POST["mediaEdit"])) {
+    if (isset($_POST["mediaEdit"])) {
         if ($_POST['mediaEdit'] === 'Edit') {
-            $offers = new Offers("offers");
-            $offers->updateById($_GET['id']);
-            $genres = new Genres();
-            $genres->updateOffersHasGenresById($_GET['id']);
-            $providers->updateOffersHasProvidersById($_GET['id']);
-            if($moviesArr > 0) {
-                $movies = new Movies();
-                $movies->updateMovieByOffersId($_GET['id']);
+            try {
+                $pdo = $connection->getPdo();
+
+                $pdo->exec("SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED");
+
+                $pdo->beginTransaction();  // Start transaction here
+
+                $offers = new Offers("offers");
+                $offers->updateById($_GET['id']);
+                $genres = new Genres();
+                $genres->updateOffersHasGenresById($_GET['id']);
+                $providers->updateOffersHasProvidersById($_GET['id']);
+                if ($moviesArr > 0) {
+                    $movies = new Movies();
+                    $movies->updateMovieByOffersId($_GET['id']);
+                }
+                $pdo->commit();  // Commit transaction
+                header('Location: MediaDetailsView.php?id=' . $_GET['id']);
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                echo "Failed: " . $e->getMessage();
             }
-            header('Location: MediaDetailsView.php?id=' . $_GET['id']);
         }
     }
 }

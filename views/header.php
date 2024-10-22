@@ -56,6 +56,7 @@
                             <?php
                             if ($_SESSION['role'] == "admin") { ?>
                                 <li><a href="MediaEditView.php">Add Movie/Series</a></li>
+                                <li><a href="API.php">API</a></li>
                             <?php }?>
                             <?php
                             if (isset($_SESSION['email'])) { ?>

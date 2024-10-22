@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6c0f92-5681-4793-89c0-1672b25e400a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/views/API.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/MediaEditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MediaEditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +43,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.API.php.executor": "Run",
     "JavaScript Debug.MediaDetailsElement.php.executor": "Run",
     "JavaScript Debug.MediaDetailsView.php.executor": "Run",
     "JavaScript Debug.config.php.executor": "Run",
     "JavaScript Debug.index.php.executor": "Run",
+    "PHP Script.API.php.executor": "Debug",
     "PHP Script.index.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "U:/PHPStorm-Projects/StreamingPortal",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +86,10 @@
       <workItem from="1728933350369" duration="5412000" />
       <workItem from="1728971225168" duration="8383000" />
       <workItem from="1729062396727" duration="12002000" />
-      <workItem from="1729230476902" duration="5913000" />
+      <workItem from="1729230476902" duration="6752000" />
+      <workItem from="1729489546403" duration="1670000" />
+      <workItem from="1729520338532" duration="33000" />
+      <workItem from="1729588943664" duration="4561000" />
     </task>
     <servers />
   </component>
@@ -93,10 +99,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/addFavs.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/views/index.php</url>
           <line>31</line>
@@ -111,6 +113,16 @@
           <url>file://$PROJECT_DIR$/controller/MediaEditController.php</url>
           <line>31</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/controller/MediaEditController.php</url>
+          <line>77</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchData.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

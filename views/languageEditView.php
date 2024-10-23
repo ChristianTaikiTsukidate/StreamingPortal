@@ -10,23 +10,29 @@ require_once('elements/multiselect.php');
     <div class="container" id="movieEditForm">
         <form method="post">
             <div class="row">
+                <form class="row">
+                    <div class="form-group col-3">
+                        <input type="text" class="form-control" name="language" placeholder="Enter Language">
+                    </div>
+                    <button type="javascript:void(0);" class="btn btn-primary col-3" id="addBtn">Submit</button>
+                </form>
                 <table class="table table-dark">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
-                    <tbody id="genreTBody">
+                    <tbody id="fetchBody">
                     </tbody>
                 </table>
             </div>
         </form>
     </div>
 </section>
-<script src="fetchData.js"></script>
+<script src="fetchLanguage.js"></script>
 <?php
 require_once('footer.php');
 ?>

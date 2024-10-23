@@ -56,7 +56,14 @@
                             <?php
                             if ($_SESSION['role'] == "admin") { ?>
                                 <li><a href="MediaEditView.php">Add Movie/Series</a></li>
-                                <li><a href="API.php">API</a></li>
+                                <li><a href="#">API<span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="genreEditView.php">Genres</a></li>
+                                        <li><a href="providerEditView.php">Providers</a></li>
+                                        <li><a href="filmIndustryProfessionalEditView.php">FilmIndustryProfessional</a></li>
+                                        <li><a href="languageEditView.php">Language</a></li>
+                                    </ul>
+                                </li>
                             <?php }?>
                             <?php
                             if (isset($_SESSION['email'])) { ?>

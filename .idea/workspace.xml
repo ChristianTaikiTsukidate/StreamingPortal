@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6c0f92-5681-4793-89c0-1672b25e400a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/API.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/fetchData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchFilmIndustryProfessional.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchGenre.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchLanguage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/filmIndustryProfessionalEditView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/languageEditView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/providerEditView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/API.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/genreEditView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fetchData.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +54,10 @@
     "JavaScript Debug.MediaDetailsElement.php.executor": "Run",
     "JavaScript Debug.MediaDetailsView.php.executor": "Run",
     "JavaScript Debug.config.php.executor": "Run",
+    "JavaScript Debug.filmIndustryProfessionalEditView.php.executor": "Run",
     "JavaScript Debug.index.php.executor": "Run",
+    "JavaScript Debug.languageEditView.php.executor": "Run",
+    "JavaScript Debug.providerEditView.php.executor": "Run",
     "PHP Script.API.php.executor": "Debug",
     "PHP Script.index.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -90,6 +100,7 @@
       <workItem from="1729489546403" duration="1670000" />
       <workItem from="1729520338532" duration="33000" />
       <workItem from="1729588943664" duration="4561000" />
+      <workItem from="1729675275752" duration="10587000" />
     </task>
     <servers />
   </component>
@@ -120,9 +131,40 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchData.js</url>
+          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
+          <line>25</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
+          <line>64</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
+          <line>58</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
+          <line>57</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchProvider.js</url>
+          <line>13</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/fetchProvider.js</url>
+          <line>3</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

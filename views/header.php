@@ -58,10 +58,10 @@
                                 <li><a href="MediaEditView.php">Add Movie/Series</a></li>
                                 <li><a href="#">API<span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="genreEditView.php">Genres</a></li>
-                                        <li><a href="providerEditView.php">Providers</a></li>
-                                        <li><a href="filmIndustryProfessionalEditView.php">FilmIndustryProfessional</a></li>
-                                        <li><a href="languageEditView.php">Language</a></li>
+                                        <li><a href="APIView.php?endpoint=Genre">Genres</a></li>
+                                        <li><a href="APIView.php?endpoint=Provider">Providers</a></li>
+                                        <li><a href="APIView.php?endpoint=FilmIndustryProfessional">FilmIndustryProfessional</a></li>
+                                        <li><a href="APIView.php?endpoint=Language">Language</a></li>
                                     </ul>
                                 </li>
                             <?php }?>

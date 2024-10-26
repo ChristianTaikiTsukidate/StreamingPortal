@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a6c0f92-5681-4793-89c0-1672b25e400a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/fetchFilmIndustryProfessional.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/fetchGenre.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/fetchLanguage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/fetchProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/filmIndustryProfessionalEditView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/languageEditView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/providerEditView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/APIView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/fetchAPIObject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/API.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/genreEditView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/fetchData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fetchFilmIndustryProfessional.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fetchGenre.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fetchLanguage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/fetchProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/filmIndustryProfessionalEditView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/genreEditView.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/languageEditView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/providerEditView.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpServers">
+    <servers>
+      <server host="PhpStorm 2024.2.1" id="90d30fc8-3199-4019-8df8-c2f03cda5f0d" name="PhpStorm 2024.2.1" port="63342" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\xampp\php\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -47,30 +54,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.API.php.executor": "Run",
-    "JavaScript Debug.MediaDetailsElement.php.executor": "Run",
-    "JavaScript Debug.MediaDetailsView.php.executor": "Run",
-    "JavaScript Debug.config.php.executor": "Run",
-    "JavaScript Debug.filmIndustryProfessionalEditView.php.executor": "Run",
-    "JavaScript Debug.index.php.executor": "Run",
-    "JavaScript Debug.languageEditView.php.executor": "Run",
-    "JavaScript Debug.providerEditView.php.executor": "Run",
-    "PHP Script.API.php.executor": "Debug",
-    "PHP Script.index.php.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "U:/PHPStorm-Projects/StreamingPortal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.API.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.APIView.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.MediaDetailsElement.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.MediaDetailsView.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.config.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.filmIndustryProfessionalEditView.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.genreEditView.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.languageEditView.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.providerEditView.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.API.php.executor&quot;: &quot;Debug&quot;,
+    &quot;PHP Script.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;U:/PHPStorm-Projects/StreamingPortal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\CODE\PHPStorm\StreamingPortal\views" />
@@ -79,8 +88,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
-        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
       </set>
     </attachedChunks>
   </component>
@@ -101,6 +110,8 @@
       <workItem from="1729520338532" duration="33000" />
       <workItem from="1729588943664" duration="4561000" />
       <workItem from="1729675275752" duration="10587000" />
+      <workItem from="1729961652468" duration="12700000" />
+      <workItem from="1729980491895" duration="2125000" />
     </task>
     <servers />
   </component>
@@ -131,40 +142,24 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
-          <line>25</line>
-          <properties lambdaOrdinal="-1" />
+          <url>file://$PROJECT_DIR$/views/fetchAPIObject.js</url>
+          <line>137</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
-          <line>64</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/views/fetchAPIObject.js</url>
+          <line>17</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
-          <line>58</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/views/fetchAPIObject.js</url>
+          <line>31</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchGenre.js</url>
-          <line>57</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchProvider.js</url>
-          <line>13</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/views/fetchProvider.js</url>
-          <line>3</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/views/fetchAPIObject.js</url>
+          <line>68</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

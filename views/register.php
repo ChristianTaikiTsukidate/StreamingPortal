@@ -1,4 +1,6 @@
-<?php require_once("header.php") ?>
+<?php require_once("header.php");
+createHeader("Create your account on Your Site Name to enjoy personalized features, manage your profile, and access exclusive content. Join us today!", "registration, sign up, create account, join us, user registration, Streaming Search Engine", "Register | Streaming Search Engine - Create Your Account", false);
+?>
 <?php require_once ("../controller/RegisterController.php")?>
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
@@ -6,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Sign Up</h2>
+                        <h1>Sign Up</h1>
                         <p>Welcome to the official Anime blog.</p>
                     </div>
                 </div>
@@ -38,7 +40,7 @@
                             </div>
                             <button type="submit" class="site-btn" name="register">Register</button>
                         </form>
-                        <h5>Already have an account? <a href="views/login.php">Log In!</a></h5>
+                        <h5>Already have an account? <a href="login.php">Log In!</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-6">

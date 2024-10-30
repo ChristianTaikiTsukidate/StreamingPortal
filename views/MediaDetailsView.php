@@ -1,15 +1,21 @@
 <?php
-require_once('header.php');
 require_once('elements/breadcrumb.php');
 require_once("elements/MediaElements.php");
 require_once("elements/StreamingServiceIcon.php");
 require_once("elements/MediaDetailsElement.php");
+require_once('header.php');
+require_once ('elements/createMetaData_Media.php');
 require_once("../controller/MediaDetailsController.php");
 /** @var array $media */
 /** @var array $seasonsArr */
 /** @var array $providersArr */
 /** @var array $breadcrumbAssArr */
 /** @var array $genresArr */
+$description = createDescriptionMedia($media['title'], $media['type']);
+$keywords = createKeywordsMedia($media['title'], $media['genre'], $media['type']);
+$title = createTitleMedia($media['title']);
+createHeader($description,$keywords,$title,false);
+
 createBreadcrumb($breadcrumbAssArr);
 createMediaDetailsElement($media, $providersArr, $media['title'], $genresArr);
 ?>

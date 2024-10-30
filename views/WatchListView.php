@@ -7,7 +7,9 @@
 /** @var array $medias */
 /** @var array $breadcrumbAssArr */
 /** @var array $watchlist */
+require_once('../controller/config.php');
 require_once('header.php');
+createHeader("","","", true);
 require_once('../controller/WatchListController.php');
 require_once('elements/MediaElements.php');
 

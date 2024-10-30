@@ -1,5 +1,6 @@
 <?php
 require_once('header.php');
+createHeader("","","", true);
 require_once('elements/inputformfield.php');
 require_once('elements/multiselect.php');
 require_once("../controller/EpisodeEditController.php");

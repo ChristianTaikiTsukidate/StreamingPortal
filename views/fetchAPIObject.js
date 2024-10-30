@@ -23,8 +23,8 @@ function generateAPIHeadersAndAddRow(endpoint) {
         }
         headers += `<th scope="col">Actions</th>`;
         body += `<td><button class="btn btn-primary" id="addBtn" href="javascript:void(0);">Submit</button></td></tr>`;
-        document.getElementById("fetchHeader").innerHTML = headers;
-        document.getElementById("fetchBody").innerHTML = body;
+        document.getElementById("fetchHeader").innerHTML += headers;
+        document.getElementById("fetchBody").innerHTML += body;
     }).catch(error => {
         console.error('Fetch error:', error);
     });

@@ -15,7 +15,7 @@ function createMediaDetailsElement($media, $providersArr, $title, $genresArr)
             <div class="col-lg-9">
                 <div class="anime__details__text">
                     <div class="anime__details__title">
-                        <h3><?= $title; ?></h3>
+                        <h1 style="font-size: 30px"><?= $title; ?></h1>
                         <span></span>
                     </div>
                     <div class="anime__details__rating">

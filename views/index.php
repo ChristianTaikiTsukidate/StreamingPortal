@@ -7,9 +7,16 @@
 /** @var array $medias */
 /** @var array $breadcrumbAssArr */
 require_once('header.php');
+$description = "Die beste Streaming-Suchmaschine für Filme, Serien und Live-Events. Finde heraus, wo deine Lieblingsinhalte online verfügbar sind, und entdecke ein breites Angebot an Anbietern und Preisen.";
+$keywords = "Streaming-Suchmaschine, Filme, Serien, Live-Events, HD-Qualität, Entertainment, Streaming-Dienste, Video on Demand, Inhalte finden";
+$title = "Streaming-Suchmaschine - Finde Filme, Serien & Live-Events Online";
+createHeader($description, $keywords, $title, false);
+
 require_once('../controller/IndexController.php');
 require_once('elements/breadcrumb.php');
+require_once('elements/createHeaderOne.php');
 createBreadcrumb($breadcrumbAssArr);
+createHeaderOne("Streaming-Suchmaschine");
 require_once('elements/carousel.php');
 require_once('elements/filterDropdowns.php');
 require_once('elements/MediaElements.php');

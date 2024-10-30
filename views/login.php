@@ -1,12 +1,14 @@
-<?php require_once("header.php") ?>
-<?php require_once("../controller/LoginController.php") ?>
+<?php
+require_once('header.php');
+createHeader("Login to Your Site Name to access your account. Securely sign in to manage your profile, view your content, and enjoy personalized features. Join us for an enhanced experience!","Login, account access, user login, sign in, secure login, user authentication, account management, personalized experience, Streaming Search Engine","Login | Your Site Name - Access Your Account", false);
+require_once("../controller/LoginController.php") ?>
     <!-- Normal Breadcrumb Begin -->
     <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Login</h2>
+                        <h1>Login</h1>
                         <p>Welcome peasant.</p>
                     </div>
                 </div>

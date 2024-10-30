@@ -1,14 +1,19 @@
 <?php
-require_once('header.php');
-require_once('elements/breadcrumb.php');
-require_once("elements/StreamingServiceIcon.php");
-require_once("elements/MediaDetailsElement.php");
-require_once("../controller/EpisodeDetailsController.php");
 /** @var array $providersArr */
 /** @var array $episode */
 /** @var int $episodesCount */
 /** @var array $breadcrumbAssArr */
 /** @var array $genresArr */
+require_once('header.php');
+require_once('elements/breadcrumb.php');
+require_once("elements/StreamingServiceIcon.php");
+require_once("elements/MediaDetailsElement.php");
+require_once("../controller/EpisodeDetailsController.php");
+require_once ("elements/createMetadata_Episode.php");
+$description = createDescriptionEpisode($episode['title'], $episode['seasonNumber'], $episode['name']);
+$keywords = createKeywordsEpisode($episode['title'], $episode['seasonNumber'], $episode['episodeNumber']);
+$title = createTitleEpisode($episode['title'], $episode['seasonNumber'], $episode['name']);
+createHeader($description,$keywords,$title, false);
 createBreadcrumb($breadcrumbAssArr);
 createMediaDetailsElement($episode, $providersArr, $episode['name'], $genresArr);
 ?>

@@ -1,5 +1,6 @@
 <?php
 require_once('header.php');
+createHeader("","","", true);
 ?>
 <!-- Product Section Begin -->
 <section class="product-page spad">

@@ -16,6 +16,7 @@ $providers = new providers();
 $series = new Series();
 $movies = new Movies();
 $connection = new Connection("");
+print_r($_POST);
 if (isset($_GET['id'])) {
     $seriesArr = $series->getRecordById($_GET['id']);
     $moviesArr = $movies->getRecordById($_GET['id']);
@@ -56,12 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->commit();  // Commit transaction
 
         // Redirect after commit
-        if ($_POST['form_adder'] === 'Movie') {
-            header('Location: MediaDetailsView.php?id=' . $offersId);
-        } elseif ($_POST['form_adder'] === 'Series') {
-            header('Location: EpisodeEditView.php?id=' . $offersId . "&seasonId=" . $seasonsId);
+        if(isset($_POST['form_adder'])) {
+            if ($_POST['form_adder'] === 'Movie') {
+                header('Location: MediaDetailsView.php?id=' . $offersId);
+            } elseif ($_POST['form_adder'] === 'Series') {
+                header('Location: EpisodeEditView.php?id=' . $offersId . "&seasonId=" . $seasonsId);
+            }
         }
-
     } catch (Exception $e) {
         $pdo->rollBack();
         echo "Failed: " . $e->getMessage();
@@ -80,7 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $genres = new Genres();
                 $genres->updateOffersHasGenresById($_GET['id']);
                 $providers->updateOffersHasProvidersById($_GET['id']);
-                if ($moviesArr > 0) {
+                print_r($moviesArr);
+                if (count($moviesArr) > 0) {
+                    print_r("HHHHFAFAHFDHASFHFSDHFSDHFD");
                     $movies = new Movies();
                     $movies->updateMovieByOffersId($_GET['id']);
                 }

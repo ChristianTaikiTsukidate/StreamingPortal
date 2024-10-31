@@ -1,7 +1,7 @@
 <?php
 require_once('header.php');
-createHeader("","","", true);
 require_once('../controller/MediaEditController.php');
+createHeader("","","", true);
 /** @var Genres $genres */
 /** @var Providers $providers */
 /** @var array $seriesArr */
